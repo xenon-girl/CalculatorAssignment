@@ -37,7 +37,7 @@ function stringCalculator(string1, funcCounter = false) {
 
     if (negativeArray && negativeArray.length > 0) {
       let err = new Error();
-      err["message"] = "negatives not allowed";
+      err["message"] = "Negatives not allowed";
       err["values"] = negativeArray.join(', ');
       throw err;
     }
