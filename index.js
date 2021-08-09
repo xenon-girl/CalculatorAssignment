@@ -17,16 +17,18 @@ function stringCalculator(string1) {
   myEmitter.emit('addFunctionCalled');
 
   try {
-    let formattedString = string1.replace(/[a-zA-Z]/g, ''); // << n
-    formattedString = formattedString.split(/[,.*%\\/\n;\{\}\[\]]/) // << n
+    let array1 = string1.match(/[+-]?\d+(?:\.\d+)?/g);
+    console.log(array1);
+    // let formattedString = string1.replace(/[a-zA-Z]/g, '');
+    // formattedString = formattedString.split(/[,.*%\\/\n;\{\}\[\]]/) 
 
-    let array1 = formattedString && formattedString.length > 0
-      ? formattedString.map(item => item && item.length > 0
-        ? typeof Number(item) === 'number' &&
-          (Number(item) > 0 || Number(item) < 0) ? Number(item) : 0
-        : 0)
-      : 0;
-
+    // let array1 = formattedString && formattedString.length > 0
+    //   ? formattedString.map(item => item && item.length > 0
+    //     ? typeof Number(item) === 'number' &&
+    //       (Number(item) > 0 || Number(item) < 0) ? Number(item) : 0
+    //     : 0)
+    //   : 0;
+    
     let negativeArray = []; // n
     let array = array1.map(item => {
       if (item < 0) {
@@ -46,7 +48,7 @@ function stringCalculator(string1) {
     }
 
     let sum1 = array && array.length > 0 ?
-      array.reduce((acc, curr) => curr <= 1000 ? acc += curr : acc, 0) : 0;
+      array.reduce((acc, curr) => curr <= 1000 ? acc += Number(curr) : acc, 0) : 0;
 
     return sum1;
 
@@ -57,11 +59,12 @@ function stringCalculator(string1) {
 
 }
 
-// stringCalculator('1;-2/-4swati***1000');
-// stringCalculator('//[**][%%]\n1**2%%3');
+stringCalculator('+1;--2/-4swati***1000');
+stringCalculator('//[**][%%]\n1**2%%3');
+console.log(stringCalculator('//[**][%%]\n1**2%%3'));
 // stringCalculator('//[*][%]\n1*2%3');
 
-for (let i = 0; i < 5; i++) console.log("Sum: ", stringCalculator('//;\n1;2'));
+// for (let i = 0; i < 5; i++) console.log("Sum: ", stringCalculator('//;\n1;2'));
 
 console.log(`Counter: ${callCounter}`);
 
