@@ -21,6 +21,6 @@ mocha CalculatorTest.js
 ### Sample Screenshot attached:
 
 <div align="center">
-    <img src=""/> <br>
+    <img src="https://user-images.githubusercontent.com/48390770/128763692-6a72ea5c-1a7a-449f-94c8-d9fe513f7918.png"/> <br>
 </div>
 <br>
